@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('facture_header', function (Blueprint $table) {
             $table->string('invoiceId');
             $table->string('userId');
-            $table->string('address', 100);
-            $table->string('postalCode', 5);
+            $table->string('address', 100)->nullable();
+            $table->string('postalCode', 5)->nullable();
             $table->timestamps();
             $table->primary('invoiceId');
             $table->foreign('userId')->references('id')->on('users');

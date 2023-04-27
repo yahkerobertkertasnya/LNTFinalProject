@@ -21,11 +21,6 @@
                     </div>
                     <button type="submit" class="btn mt-4 btn-outline-primary">Login</button>
                 </form>
-                @if($errors->any())
-                    <div class="text-bg-dark text-center pt-4">
-                        {{ $errors->first() }}
-                    </div>
-                @endif
             </div>
         </div>
     </div>

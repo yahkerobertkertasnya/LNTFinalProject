@@ -27,11 +27,11 @@ class AuthController extends Controller
             $user = Auth::user();
             session(['user' => $user]);
             session(['invoice' => FactureHeader::where('userId', '=', $user->getAttributes()['id'])->first()->getAttributes()['invoiceId']]);
-            if($user->isAdmin) return redirect('dashboard-admin');
-            else return redirect('dashboard');
+            if($user->isAdmin) return redirect('dashboard-admin')->withSuccess('Logged in successfully!');
+            else return redirect('dashboard')->withSuccess('Logged in successfully!');
 
         }
-        return back();
+        return back()->withErrors('Failed to Login');
     }
 
     public function register(Request $request){
@@ -67,6 +67,7 @@ class AuthController extends Controller
         $user->password = bcrypt($request->password);
         $user->handphone = $request->handphone;
         $user->created_at = Carbon::now();
+        $user->isAdmin = false;
         $user->save();
 
         $year = substr(Carbon::now()->year, 2, 4);
@@ -78,7 +79,7 @@ class AuthController extends Controller
         $factureHeader->created_at = Carbon::now();
         $factureHeader->save();
 
-        return back();
+        return back()->withSuccess('Account registered successfully!');
     }
 
     public function logout(){

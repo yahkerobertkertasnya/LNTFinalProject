@@ -25,7 +25,7 @@
                         <div class="row row-cols-auto py-3">
                             <div class="col d-flex align-items-center" style="width: 150px;">Postal Code:</div>
                             <div class="col p-0">
-                                <input type="text" class="form-control" name="postalCode" value={{$facture->postalCode}} style="width: 200px;">
+                                <input type="text" class="form-control" name="postalCode" value="{{$facture->postalCode}}" style="width: 200px;">
                             </div>
                         </div>
                 </div>

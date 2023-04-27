@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
 
         $newUser = new User();
         $newUser->id = ("myAdmin");
-        $newUser->name = 'Yahkerobertkertasnya';
-        $newUser->email = 'obet@gmail.com';
-        $newUser->password = bcrypt('bruh');
+        $newUser->name = 'admin';
+        $newUser->email = 'admin@gmail.com';
+        $newUser->password = bcrypt('admin');
         $newUser->handphone = '087888888889';
         $newUser->isAdmin = true;
         $newUser->created_at = Carbon::now();
@@ -114,7 +114,7 @@ class DatabaseSeeder extends Seeder
         $newUser->password = bcrypt('ilovetidur');
         $newUser->handphone = '087888888888';
         $newUser->isAdmin = false;
-        $newUser->created_at = Carbon::now();
+        $newUser->created_at = Carbon::now()->addHour();
         $newUser->save();
 
         $year = substr(Carbon::now()->year, 2, 4);
